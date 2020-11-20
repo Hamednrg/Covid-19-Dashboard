@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,14 @@
 		0546349424E001720032B6E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0546349324E001720032B6E6 /* Assets.xcassets */; };
 		0546349724E001720032B6E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0546349624E001720032B6E6 /* Preview Assets.xcassets */; };
 		0546349A24E001720032B6E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0546349824E001720032B6E6 /* LaunchScreen.storyboard */; };
+		054634A324E0029A0032B6E6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 054634A224E0029A0032B6E6 /* Alamofire */; };
+		054634A624E002F30032B6E6 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 054634A524E002F30032B6E6 /* SwiftyJSON */; };
+		054634A824E004110032B6E6 /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054634A724E004110032B6E6 /* CovidFetchRequest.swift */; };
+		054634AA24E012330032B6E6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054634A924E012330032B6E6 /* Model.swift */; };
+		0551C4EB24E041920091F10D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EA24E041920091F10D /* HomeView.swift */; };
+		0551C4ED24E042270091F10D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EC24E042270091F10D /* MapView.swift */; };
+		0551C4EF24E047070091F10D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EE24E047070091F10D /* Extension.swift */; };
+		05DEFF8C24E52B9A007B38A5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEFF8B24E52B9A007B38A5 /* SearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,12 @@
 		0546349624E001720032B6E6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0546349924E001720032B6E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0546349B24E001720032B6E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		054634A724E004110032B6E6 /* CovidFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidFetchRequest.swift; sourceTree = "<group>"; };
+		054634A924E012330032B6E6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		0551C4EA24E041920091F10D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0551C4EC24E042270091F10D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0551C4EE24E047070091F10D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		05DEFF8B24E52B9A007B38A5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054634A624E002F30032B6E6 /* SwiftyJSON in Frameworks */,
+				054634A324E0029A0032B6E6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +76,12 @@
 			children = (
 				0546348A24E001710032B6E6 /* AppDelegate.swift */,
 				0546348C24E001710032B6E6 /* SceneDelegate.swift */,
+				0551C4E924E041370091F10D /* Model */,
 				0546349124E001710032B6E6 /* ContentView.swift */,
+				0551C4EC24E042270091F10D /* MapView.swift */,
+				0551C4EA24E041920091F10D /* HomeView.swift */,
+				0551C4EE24E047070091F10D /* Extension.swift */,
+				05DEFF8B24E52B9A007B38A5 /* SearchView.swift */,
 				0546349324E001720032B6E6 /* Assets.xcassets */,
 				0546349824E001720032B6E6 /* LaunchScreen.storyboard */,
 				0546349B24E001720032B6E6 /* Info.plist */,
@@ -76,6 +97,15 @@
 				0546349624E001720032B6E6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0551C4E924E041370091F10D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				054634A924E012330032B6E6 /* Model.swift */,
+				054634A724E004110032B6E6 /* CovidFetchRequest.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -94,6 +124,10 @@
 			dependencies = (
 			);
 			name = "Covid-19 Dashboard";
+			packageProductDependencies = (
+				054634A224E0029A0032B6E6 /* Alamofire */,
+				054634A524E002F30032B6E6 /* SwiftyJSON */,
+			);
 			productName = "Covid-19 Dashboard";
 			productReference = 0546348724E001710032B6E6 /* Covid-19 Dashboard.app */;
 			productType = "com.apple.product-type.application";
@@ -105,7 +139,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Hamed Naji";
 				TargetAttributes = {
 					0546348624E001710032B6E6 = {
@@ -122,6 +156,10 @@
 				Base,
 			);
 			mainGroup = 0546347E24E001710032B6E6;
+			packageReferences = (
+				054634A124E0029A0032B6E6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				054634A424E002F30032B6E6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 0546348824E001710032B6E6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -149,8 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05DEFF8C24E52B9A007B38A5 /* SearchView.swift in Sources */,
+				0551C4EF24E047070091F10D /* Extension.swift in Sources */,
+				054634A824E004110032B6E6 /* CovidFetchRequest.swift in Sources */,
+				0551C4ED24E042270091F10D /* MapView.swift in Sources */,
+				0551C4EB24E041920091F10D /* HomeView.swift in Sources */,
 				0546349024E001710032B6E6 /* Covid_19_Dashboard.xcdatamodeld in Sources */,
 				0546348B24E001710032B6E6 /* AppDelegate.swift in Sources */,
+				054634AA24E012330032B6E6 /* Model.swift in Sources */,
 				0546349224E001710032B6E6 /* ContentView.swift in Sources */,
 				0546348D24E001710032B6E6 /* SceneDelegate.swift in Sources */,
 			);
@@ -196,6 +240,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -220,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -256,6 +301,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -274,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -346,6 +392,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		054634A124E0029A0032B6E6 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		054634A424E002F30032B6E6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		054634A224E0029A0032B6E6 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 054634A124E0029A0032B6E6 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		054634A524E002F30032B6E6 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 054634A424E002F30032B6E6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0546348E24E001710032B6E6 /* Covid_19_Dashboard.xcdatamodeld */ = {

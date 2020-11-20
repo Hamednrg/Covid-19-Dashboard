@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        Text("Hello, World!")
+        TabView{
+            HomeView()
+                .tabItem{
+                    Image(systemName: "house.fill")
+                        .font(.title)
+                    Text("Home")
+                }.tag(0)
+            MapView()
+                .tabItem{
+                    Image(systemName: "map.fill")
+                        .font(.title)
+                    Text("Map")
+                }.tag(1)
+        }.accentColor(colorScheme == .dark ? Color("CustomBlue") : Color("CustomDarkBlue"))
+        .animation(.easeIn(duration: 0.5))
     }
 }
 

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Covid-19 Dashboard.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>
