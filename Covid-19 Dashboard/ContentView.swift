@@ -25,7 +25,7 @@ struct ContentView: View {
                     Text("Map")
                 }.tag(1)
         }.accentColor(colorScheme == .dark ? Color("CustomBlue") : Color("CustomDarkBlue"))
-        .animation(.easeIn(duration: 0.5))
+        .animation(.easeInOut)
     }
 }
 

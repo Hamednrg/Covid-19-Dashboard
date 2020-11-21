@@ -16,9 +16,9 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
             VStack{
-                if isSearchVisible{
+          
                     SearchView(searchText: $searchText)
-                }
+                
                 ZStack{
                     ColorCard().shadow(radius: 20).edgesIgnoringSafeArea(.top)
                     TotalDataView(totalData: covidFetch.totalData)
@@ -41,19 +41,6 @@ struct HomeView: View {
                     }
                 }.listStyle(PlainListStyle())
                 .navigationBarTitle("Covid-19 Dashboard", displayMode: .automatic)
-                .navigationBarItems(trailing:
-                                        Button(action:{
-                                            withAnimation{
-                                                self.isSearchVisible.toggle()
-                                                if !self.isSearchVisible{
-                                                    self.searchText = ""
-                                                }
-                                            }
-                                        }){
-                                            Image(systemName: "magnifyingglass")
-                                                .font(.title)
-                                                .accentColor(Color("CustomBlack"))
-                                        })
                 
             }
         }
