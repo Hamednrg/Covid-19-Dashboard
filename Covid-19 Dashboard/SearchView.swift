@@ -51,7 +51,7 @@ struct SearchView: View {
                         
                     }
                 }
-                .foregroundColor(Color("CustomBlack"))
+                .foregroundColor(Color("CustomOrange"))
             }
         }
         .padding(.horizontal)

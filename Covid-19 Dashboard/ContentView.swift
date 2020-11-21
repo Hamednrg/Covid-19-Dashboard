@@ -24,7 +24,7 @@ struct ContentView: View {
                         .font(.title)
                     Text("Map")
                 }.tag(1)
-        }.accentColor(colorScheme == .dark ? Color("CustomBlue") : Color("CustomDarkBlue"))
+        }.accentColor(colorScheme == .dark ? Color("CustomOrange") : Color("CustomDarkBlue"))
         .animation(.easeInOut)
     }
 }

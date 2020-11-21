@@ -166,8 +166,8 @@ struct HomeView: View {
         }
     }
     struct ColorCard:View {
-        let color1 = Color("CustomBlue")
-        let color2 = Color("CustomDarkBlue")
+        let color1 = Color("CustomDarkBlue")
+        let color2 = Color("CustomOrange")
         var body: some View{
             LinearGradient(gradient: Gradient(colors: [color1, color2]), startPoint: .bottom, endPoint: .top).cornerRadius(20)
                 .edgesIgnoringSafeArea(.all)
