@@ -21,6 +21,9 @@ class CovidFetchRequst: ObservableObject{
         getAllCountries()
         getMapInfo()
     }
+    deinit {
+        print("deinit")
+    }
     func getCurrentTotal(){
        let headers: HTTPHeaders = [
            "x-rapidapi-host": "covid-19-data.p.rapidapi.com",

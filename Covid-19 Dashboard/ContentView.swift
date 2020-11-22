@@ -24,6 +24,13 @@ struct ContentView: View {
                         .font(.title)
                     Text("Map")
                 }.tag(1)
+            NewsView()
+                .tabItem {
+                    Image(systemName: "newspaper.fill")
+                        .font(.title)
+                    Text("News")
+                }.tag(2)
+            
         }.accentColor(colorScheme == .dark ? Color("CustomOrange") : Color("CustomDarkBlue"))
         .animation(.easeInOut)
     }
