@@ -79,7 +79,6 @@
 			children = (
 				0546348A24E001710032B6E6 /* AppDelegate.swift */,
 				0546348C24E001710032B6E6 /* SceneDelegate.swift */,
-				0546349124E001710032B6E6 /* ContentView.swift */,
 				05C3E14C256AC22700B5E065 /* Viewmodel */,
 				0551C4E924E041370091F10D /* Model */,
 				05C3E14B256AC1FD00B5E065 /* Views */,
@@ -127,6 +126,7 @@
 		05C3E14B256AC1FD00B5E065 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0546349124E001710032B6E6 /* ContentView.swift */,
 				05DEFF8B24E52B9A007B38A5 /* SearchView.swift */,
 				05D0426A256978470029BD3B /* NewsView.swift */,
 				0551C4EC24E042270091F10D /* MapView.swift */,
