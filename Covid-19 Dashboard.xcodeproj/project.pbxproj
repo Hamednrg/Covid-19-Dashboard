@@ -79,13 +79,11 @@
 			children = (
 				0546348A24E001710032B6E6 /* AppDelegate.swift */,
 				0546348C24E001710032B6E6 /* SceneDelegate.swift */,
-				0551C4E924E041370091F10D /* Model */,
 				0546349124E001710032B6E6 /* ContentView.swift */,
-				0551C4EC24E042270091F10D /* MapView.swift */,
-				0551C4EA24E041920091F10D /* HomeView.swift */,
-				0551C4EE24E047070091F10D /* Extension.swift */,
-				05DEFF8B24E52B9A007B38A5 /* SearchView.swift */,
-				05D0426A256978470029BD3B /* NewsView.swift */,
+				05C3E14C256AC22700B5E065 /* Viewmodel */,
+				0551C4E924E041370091F10D /* Model */,
+				05C3E14B256AC1FD00B5E065 /* Views */,
+				05C3E14A256AC1D800B5E065 /* Extension */,
 				0546349324E001720032B6E6 /* Assets.xcassets */,
 				0546349824E001720032B6E6 /* LaunchScreen.storyboard */,
 				0546349B24E001720032B6E6 /* Info.plist */,
@@ -107,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				054634A924E012330032B6E6 /* Model.swift */,
-				054634A724E004110032B6E6 /* CovidFetchRequest.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +114,33 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05C3E14A256AC1D800B5E065 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0551C4EE24E047070091F10D /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		05C3E14B256AC1FD00B5E065 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05DEFF8B24E52B9A007B38A5 /* SearchView.swift */,
+				05D0426A256978470029BD3B /* NewsView.swift */,
+				0551C4EC24E042270091F10D /* MapView.swift */,
+				0551C4EA24E041920091F10D /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		05C3E14C256AC22700B5E065 /* Viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				054634A724E004110032B6E6 /* CovidFetchRequest.swift */,
+			);
+			path = Viewmodel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
