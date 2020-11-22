@@ -13,7 +13,6 @@
 		0546349224E001710032B6E6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0546349124E001710032B6E6 /* ContentView.swift */; };
 		0546349424E001720032B6E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0546349324E001720032B6E6 /* Assets.xcassets */; };
 		0546349724E001720032B6E6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0546349624E001720032B6E6 /* Preview Assets.xcassets */; };
-		0546349A24E001720032B6E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0546349824E001720032B6E6 /* LaunchScreen.storyboard */; };
 		054634A624E002F30032B6E6 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 054634A524E002F30032B6E6 /* SwiftyJSON */; };
 		054634A824E004110032B6E6 /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054634A724E004110032B6E6 /* CovidFetchRequest.swift */; };
 		054634AA24E012330032B6E6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054634A924E012330032B6E6 /* Model.swift */; };
@@ -21,6 +20,7 @@
 		0551C4ED24E042270091F10D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EC24E042270091F10D /* MapView.swift */; };
 		0551C4EF24E047070091F10D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EE24E047070091F10D /* Extension.swift */; };
 		058B2C882569292000EE2351 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 058B2C872569292000EE2351 /* Alamofire */; };
+		05C3E147256A713000B5E065 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0546349824E001720032B6E6 /* LaunchScreen.storyboard */; };
 		05D0426B256978470029BD3B /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D0426A256978470029BD3B /* NewsView.swift */; };
 		05DEFF8C24E52B9A007B38A5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DEFF8B24E52B9A007B38A5 /* SearchView.swift */; };
 /* End PBXBuildFile section */
@@ -185,7 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0546349A24E001720032B6E6 /* LaunchScreen.storyboard in Resources */,
+				05C3E147256A713000B5E065 /* LaunchScreen.storyboard in Resources */,
 				0546349724E001720032B6E6 /* Preview Assets.xcassets in Resources */,
 				0546349424E001720032B6E6 /* Assets.xcassets in Resources */,
 			);
@@ -355,10 +355,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HamedNaji.Covid-19-Dashboard.Covid-19-Dashboard";
+				PRODUCT_BUNDLE_IDENTIFIER = info.hamednrg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -375,10 +375,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HamedNaji.Covid-19-Dashboard.Covid-19-Dashboard";
+				PRODUCT_BUNDLE_IDENTIFIER = info.hamednrg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
