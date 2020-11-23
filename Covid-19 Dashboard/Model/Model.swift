@@ -46,6 +46,13 @@ struct MapInfo: Codable {
     let longitude:  Double
     
 }
+struct dataType: Identifiable {
+    var id: String
+    var title: String
+    var desc: String
+    var url: String
+    var image: String
+}
 
 let testTotalData = TotalData(confirmed: 0, critical: 0, deaths: 0, recovered: 0)
 

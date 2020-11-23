@@ -16,17 +16,13 @@ struct HomeView: View {
     var body: some View {
         NavigationView{
             VStack{
-          
-                    SearchView(searchText: $searchText)
+                SearchView(searchText: $searchText)
                 
                 ZStack{
                     ColorCard().shadow(radius: 20).edgesIgnoringSafeArea(.top)
                     TotalDataView(totalData: covidFetch.totalData)
                 }
-                
                 ListHeaderView()
-                
-                
                 List{
                     ForEach(covidFetch.countries.filter{
                         self.searchText.isEmpty ? true:
@@ -41,7 +37,6 @@ struct HomeView: View {
                     }
                 }.listStyle(PlainListStyle())
                 .navigationBarTitle("Covid-19 Dashboard", displayMode: .automatic)
-                
             }
         }
     }

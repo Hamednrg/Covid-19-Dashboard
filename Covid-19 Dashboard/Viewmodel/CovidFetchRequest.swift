@@ -14,12 +14,13 @@ class CovidFetchRequst: ObservableObject{
     @Published var totalData : TotalData = testTotalData
     @Published var countries = [CountryDetails]()
     @Published var maps = [MapInfo]()
-   
+    @Published var datas = [dataType]()
 
     init() {
         getCurrentTotal()
         getAllCountries()
         getMapInfo()
+        getNews()
     }
     deinit {
         print("deinit")
@@ -48,7 +49,6 @@ class CovidFetchRequst: ObservableObject{
             }
         }
     }
-    
     func getAllCountries() {
         var allcount: [CountryDetails] = [] 
         AF.request("https://corona.lmao.ninja/v3/covid-19/countries").responseJSON{ response in
@@ -70,7 +70,6 @@ class CovidFetchRequst: ObservableObject{
             self.countries = allcount.sorted(by: {$0.cases > $1.cases})
         }
     }
-    
     func getMapInfo(){
     
        let source = "https://www.trackcorona.live/api/countries"
@@ -93,7 +92,28 @@ class CovidFetchRequst: ObservableObject{
                 DispatchQueue.main.async {
                     self.maps.append(MapInfo(location: location, confirmed: confirmed, dead: dead, recovered: recovered, latitude: latitude, longitude: longitude))
                 }
-                
+            }
+        }.resume()
+    }
+    func getNews(){
+        let source = "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=59a81e37879b4bc198676c45fc8cdee4"
+        let url = URL(string: source)!
+        let session = URLSession(configuration: .default)
+        session.dataTask(with: url){(data,_,err) in
+            if err != nil {
+                print((err?.localizedDescription)!)
+                return
+            }
+            let json = try! JSON(data: data!)
+            for i in json["articles"]{
+                let title = i.1["title"].stringValue
+                let description = i.1["description"].stringValue
+                let url = i.1["url"].stringValue
+                let image = i.1["urlToImage"].stringValue
+                let id = i.1["publishedAt"].stringValue
+                DispatchQueue.main.async {
+                self.datas.append(dataType(id: id, title: title, desc: description, url: url, image: image))
+                }
             }
         }.resume()
     }
