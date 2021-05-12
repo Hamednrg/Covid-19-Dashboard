@@ -46,7 +46,7 @@ struct HomeView: View {
             HomeView()
         }
     }
-    struct ListHeaderView:View{
+    struct ListHeaderView: View {
         var body: some View{
             HStack{
                 Text("Country")
@@ -90,145 +90,149 @@ struct HomeView: View {
                     .frame(width: 110,height: 40,alignment: .leading )
                     .lineLimit(1)
                 Spacer()
-                
-                Text(countryData.cases.formatNumber())
-                    .font(.subheadline)
-                    .frame(width:60,height: 40, alignment: .leading )
-                    // .padding(.leading)
-                    .lineLimit(1)
-                Spacer()
-                Text(countryData.deaths.formatNumber())
-                    .font(.subheadline)
-                    .frame(width:60,height: 40, alignment: .leading )
-                    .foregroundColor(.red)
-                    .lineLimit(1)
-                    .padding(.leading,5)
-                Spacer()
-                Text(countryData.recovered.formatNumber())
-                    .font(.subheadline)
-                    .frame(width:60, height: 40, alignment: .leading )
-                    .foregroundColor(.green)
-                    .lineLimit(1)
-                
+                HStack{
+                    Text(countryData.cases.formatNumber())
+                        .font(.subheadline)
+                        .scaledToFill()
+                        .frame(height: 40, alignment: .leading )
+                        .padding(.leading)
+                        .lineLimit(1)
+                    Spacer(minLength: 10)
+                    Text(countryData.deaths.formatNumber())
+                        .font(.subheadline)
+                        .scaledToFill()
+                        .frame(height: 40, alignment: .leading )
+                        .foregroundColor(.red)
+                        .lineLimit(1)
+                    
+                    Spacer(minLength: 10)
+                    Text(countryData.recovered.formatNumber())
+                        .font(.subheadline)
+                        .scaledToFill()
+                        .frame(width: 60,height: 40, alignment: .leading )
+                        .foregroundColor(.green)
+                        .lineLimit(1)
+                    }
+                }
             }
         }
-    }
-    struct TotalDataCard:View {
-        var number:String = "err"
-        var name: String = "Confirmed"
-        var color: Color = .primary
-        
-        var body: some View{
-            GeometryReader{geometry in
-                ZStack{
-                    VStack{
-                        Text(self.number)
-                            .font(.body)
-                            .padding(5)
-                            .foregroundColor(self.color)
-                        Text(self.name)
-                            .font(.body)
-                            // .padding()
-                            .foregroundColor(self.color)
-                    }.frame(width: geometry.size.width, height: 80, alignment: .center)
-                    .background(Color("CustomBlue2"))
-                    .shadow(radius: 30)
-                    .cornerRadius(8.0)
-                }
-                
-                
-            }
-        }
-    }
-    struct TotalDataView: View {
-        var totalData: TotalData
-        var body: some View{
-            VStack{
-                HStack{
-                    TotalDataCard(number: totalData.confirmed.formatNumber(), name: "Confirmed",color: .black)
-                    TotalDataCard(number: totalData.critical.formatNumber(), name: "Critical", color: .black)
-                    TotalDataCard(number: totalData.deaths.formatNumber(), name: "Deaths", color: .red)
-                }
-                HStack{
-                    TotalDataCard(number: String(format:"%.2f",totalData.fatalityRate), name: "Death %",color: .red)
-                    TotalDataCard(number: totalData.recovered.formatNumber(), name: "Recovered", color: .green)
-                    TotalDataCard(number: String(format:"%.2f",totalData.recoveredRate), name: "Recovery%", color: .green)
+    struct TotalDataCard: View {
+            var number:String = "err"
+            var name: String = "Confirmed"
+            var color: Color = .primary
+            
+            var body: some View{
+                GeometryReader{geometry in
+                    ZStack{
+                        VStack{
+                            Text(self.number)
+                                .font(.body)
+                                .padding(5)
+                                .foregroundColor(self.color)
+                            Text(self.name)
+                                .font(.body)
+                                // .padding()
+                                .foregroundColor(self.color)
+                        }.frame(width: geometry.size.width, height: 80, alignment: .center)
+                        .background(Color("CustomBlue2"))
+                        .shadow(radius: 30)
+                        .cornerRadius(8.0)
+                    }
+                    
                     
                 }
-            }.frame( height: 170)
-            .padding(10)
-            
+            }
         }
-    }
-    struct ColorCard:View {
-        let color1 = Color("CustomDarkBlue")
-        let color2 = Color("CustomOrange")
-        var body: some View{
-            LinearGradient(gradient: Gradient(colors: [color1, color2]), startPoint: .bottom, endPoint: .top).cornerRadius(20)
-                .edgesIgnoringSafeArea(.all)
-        }
-    }
-    struct CellView: View {
-        var countryData: CountryDetails
-        var body: some View{
-            VStack(alignment: .leading, spacing: 15){
-                
-                HStack(spacing: 15){
-                    VStack(alignment: .leading, spacing: 12){
-                        Text("Active Cases")
-                            .foregroundColor(.black)
-                            .font(.title)
-                        Text(countryData.cases.formatNumber())
-                            .font(.title)
-                            .foregroundColor(.black)
+    struct TotalDataView: View {
+            var totalData: TotalData
+            var body: some View{
+                VStack{
+                    HStack{
+                        TotalDataCard(number: totalData.confirmed.formatNumber(), name: "Confirmed",color: .black)
+                        TotalDataCard(number: totalData.critical.formatNumber(), name: "Critical", color: .black)
+                        TotalDataCard(number: totalData.deaths.formatNumber(), name: "Deaths", color: .red)
                     }
-                    VStack(alignment: .leading, spacing: 12){
-                        VStack(alignment: .leading, spacing: 10){
-                            Text("Deaths")
-                                .foregroundColor(.black)
-                            Text(countryData.deaths.formatNumber())
-                                .foregroundColor(.red)
-                        }
-                        Divider()
-                        VStack(alignment: .leading, spacing: 10){
-                            Text("Death%")
-                                .foregroundColor(.black)
-                            Text(String(format: "%.2f", countryData.fatalityRate))
-                                .foregroundColor(.red)
-                        }
-                        Divider()
-                        VStack(alignment: .leading, spacing: 10){
-                            Text("Critical")
-                                .foregroundColor(.black)
-                            Text(countryData.critical.formatNumber())
-                                .foregroundColor(.orange)
-                        }
-                        Divider()
+                    HStack{
+                        TotalDataCard(number: String(format:"%.2f",totalData.fatalityRate), name: "Death %",color: .red)
+                        TotalDataCard(number: totalData.recovered.formatNumber(), name: "Recovered", color: .green)
+                        TotalDataCard(number: String(format:"%.2f",totalData.recoveredRate), name: "Recovery%", color: .green)
                         
-                        VStack(alignment: .leading, spacing: 10){
-                            Text("Recovered")
+                    }
+                }.frame( height: 170)
+                .padding(10)
+                
+            }
+        }
+    struct ColorCard:View {
+            let color1 = Color("CustomDarkBlue")
+            let color2 = Color("CustomOrange")
+            var body: some View{
+                LinearGradient(gradient: Gradient(colors: [color1, color2]), startPoint: .bottom, endPoint: .top).cornerRadius(20)
+                    .edgesIgnoringSafeArea(.all)
+            }
+        }
+    struct CellView: View {
+            var countryData: CountryDetails
+            var body: some View{
+                VStack(alignment: .leading, spacing: 15){
+                    
+                    HStack(spacing: 15){
+                        VStack(alignment: .leading, spacing: 12){
+                            Text("Active Cases")
                                 .foregroundColor(.black)
-                            Text(countryData.recovered.formatNumber())
-                                .foregroundColor(.green)
+                                .font(.title)
+                            Text(countryData.cases.formatNumber())
+                                .font(.title)
+                                .foregroundColor(.black)
                         }
-                        Divider()
-                        VStack(alignment: .leading, spacing: 10){
-                            Text("Recovered%")
-                                .foregroundColor(.black)
-                            Text(String(format: "%.2f", countryData.recoveredRate))
-                                .foregroundColor(.green)
+                        VStack(alignment: .leading, spacing: 12){
+                            VStack(alignment: .leading, spacing: 10){
+                                Text("Deaths")
+                                    .foregroundColor(.black)
+                                Text(countryData.deaths.formatNumber())
+                                    .foregroundColor(.red)
+                            }
+                            Divider()
+                            VStack(alignment: .leading, spacing: 10){
+                                Text("Death%")
+                                    .foregroundColor(.black)
+                                Text(String(format: "%.2f", countryData.fatalityRate))
+                                    .foregroundColor(.red)
+                            }
+                            Divider()
+                            VStack(alignment: .leading, spacing: 10){
+                                Text("Critical")
+                                    .foregroundColor(.black)
+                                Text(countryData.critical.formatNumber())
+                                    .foregroundColor(.orange)
+                            }
+                            Divider()
+                            
+                            VStack(alignment: .leading, spacing: 10){
+                                Text("Recovered")
+                                    .foregroundColor(.black)
+                                Text(countryData.recovered.formatNumber())
+                                    .foregroundColor(.green)
+                            }
+                            Divider()
+                            VStack(alignment: .leading, spacing: 10){
+                                Text("Recovered%")
+                                    .foregroundColor(.black)
+                                Text(String(format: "%.2f", countryData.recoveredRate))
+                                    .foregroundColor(.green)
+                            }
                         }
                     }
-                }
+                    
+                    .padding()
+                    .frame(width: UIScreen.main.bounds.width - 30)
+                    .background(Color("CustomBlue2"))
+                    .cornerRadius(20)
+                    Spacer()
+                }.padding(.top,50)
+                .navigationBarTitle(countryData.country)
                 
-                .padding()
-                .frame(width: UIScreen.main.bounds.width - 30)
-                .background(Color("CustomBlue2"))
-                .cornerRadius(20)
-                Spacer()
-            }.padding(.top,50)
-            .navigationBarTitle(countryData.country)
-            
+            }
         }
     }
-}
+

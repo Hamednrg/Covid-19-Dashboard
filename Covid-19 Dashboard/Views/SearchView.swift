@@ -11,7 +11,7 @@ import SwiftUI
 struct SearchView: View {
     @Binding var searchText: String
     @State private var showCancelButton: Bool = false
-    var onCommit: () ->Void = {print("onCommit")}
+    var onCommit: () -> Void = {print("onCommit")}
     
     var body: some View {
         HStack {

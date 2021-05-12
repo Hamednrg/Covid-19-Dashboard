@@ -16,28 +16,28 @@ struct NewsView: View {
         NavigationView{
             List(list.datas){i in
                 
-//                NavigationLink(destination: WebView(url: i.url)
-//                                .navigationBarTitle("",displayMode: .inline )){
-                    HStack(spacing: 15){
-                        if i.image != ""{
-                            WebImage(url: URL(string: i.image), options: .highPriority, context: nil).resizable().frame(width: 140, height: 130, alignment: .leading).cornerRadius(20)
+                //                NavigationLink(destination: WebView(url: i.url)
+                //                                .navigationBarTitle("",displayMode: .inline )){
+                HStack(spacing: 15){
+                    if i.image != ""{
+                        WebImage(url: URL(string: i.image), options: .highPriority, context: nil).resizable().frame(width: 140, height: 130, alignment: .leading).cornerRadius(20)
+                    }
+                    
+                    VStack(alignment: .leading, spacing: 10){
+                        Text(i.title).fontWeight(.heavy).lineLimit(3)
+                        Text(i.desc).foregroundColor(.primary).lineLimit(2)
+                        if #available(iOS 14.0, *) {
+                            Link("See more",
+                                 destination: URL(string: i.url)!)
+                                .font(.subheadline)
+                                .foregroundColor(.blue)
+                        } else {
+                            // Fallback on earlier versions
                         }
-                        
-                        VStack(alignment: .leading, spacing: 10){
-                            Text(i.title).fontWeight(.heavy).lineLimit(3)
-                            Text(i.desc).foregroundColor(.primary).lineLimit(2)
-                            if #available(iOS 14.0, *) {
-                                Link("See more",
-                                     destination: URL(string: i.url)!)
-                                    .font(.subheadline)
-                                    .foregroundColor(.blue)
-                            } else {
-                                // Fallback on earlier versions
-                            }
-                        }
-                        
-                    }.padding(.vertical,15)
-//                }
+                    }
+                    
+                }.padding(.vertical,15)
+                //                }
                 
             }.navigationBarTitle(Text("Headlines"))
         }
