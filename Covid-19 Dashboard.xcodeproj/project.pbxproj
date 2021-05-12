@@ -16,6 +16,7 @@
 		054634A624E002F30032B6E6 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 054634A524E002F30032B6E6 /* SwiftyJSON */; };
 		054634A824E004110032B6E6 /* CovidFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054634A724E004110032B6E6 /* CovidFetchRequest.swift */; };
 		054634AA24E012330032B6E6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054634A924E012330032B6E6 /* Model.swift */; };
+		054C7AB4256ADD850082404B /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 054C7AB3256ADD850082404B /* SDWebImageSwiftUI */; };
 		0551C4EB24E041920091F10D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EA24E041920091F10D /* HomeView.swift */; };
 		0551C4ED24E042270091F10D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EC24E042270091F10D /* MapView.swift */; };
 		0551C4EF24E047070091F10D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C4EE24E047070091F10D /* Extension.swift */; };
@@ -49,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054C7AB4256ADD850082404B /* SDWebImageSwiftUI in Frameworks */,
 				054634A624E002F30032B6E6 /* SwiftyJSON in Frameworks */,
 				058B2C882569292000EE2351 /* Alamofire in Frameworks */,
 			);
@@ -162,6 +164,7 @@
 			packageProductDependencies = (
 				054634A524E002F30032B6E6 /* SwiftyJSON */,
 				058B2C872569292000EE2351 /* Alamofire */,
+				054C7AB3256ADD850082404B /* SDWebImageSwiftUI */,
 			);
 			productName = "Covid-19 Dashboard";
 			productReference = 0546348724E001710032B6E6 /* Covid-19 Dashboard.app */;
@@ -194,6 +197,7 @@
 			packageReferences = (
 				054634A424E002F30032B6E6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				058B2C862569292000EE2351 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				054C7AB2256ADD850082404B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 0546348824E001710032B6E6 /* Products */;
 			projectDirPath = "";
@@ -370,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid-19 Dashboard/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VDDYDW365;
@@ -381,6 +386,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.hamednrg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -390,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Covid-19 Dashboard/Preview Content\"";
 				DEVELOPMENT_TEAM = 6VDDYDW365;
@@ -401,6 +408,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.hamednrg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -438,6 +446,14 @@
 				version = 4.3.0;
 			};
 		};
+		054C7AB2256ADD850082404B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.0;
+			};
+		};
 		058B2C862569292000EE2351 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -453,6 +469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 054634A424E002F30032B6E6 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		054C7AB3256ADD850082404B /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 054C7AB2256ADD850082404B /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		058B2C872569292000EE2351 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
