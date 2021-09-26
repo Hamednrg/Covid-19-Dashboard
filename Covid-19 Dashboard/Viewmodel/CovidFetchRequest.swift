@@ -15,7 +15,7 @@ class CovidFetchRequst: ObservableObject{
     @Published var countries = [CountryDetails]()
     @Published var maps = [MapInfo]()
     @Published var datas = [dataType]()
-
+    
     init() {
         getCurrentTotal()
         getAllCountries()
@@ -26,17 +26,17 @@ class CovidFetchRequst: ObservableObject{
         print("deinit")
     }
     func getCurrentTotal(){
-       let headers: HTTPHeaders = [
-           "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-           "x-rapidapi-key": "430f789df3mshd914a7f4cd52737p109b30jsn93bafccc73f9"
-       ]
+        let headers: HTTPHeaders = [
+            "x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+            "x-rapidapi-key": "430f789df3mshd914a7f4cd52737p109b30jsn93bafccc73f9"
+        ]
         AF.request("https://covid-19-data.p.rapidapi.com/totals?format=json", headers: headers).responseJSON {  response in
             
             
             let result = response.data
             if result != nil{
                 let json = JSON(result!)
-//                print(json)
+                //                print(json)
                 
                 let confimed    = json[0]["confirmed"].intValue
                 let recovered   = json[0]["recovered"].intValue
@@ -56,14 +56,14 @@ class CovidFetchRequst: ObservableObject{
             if result != nil{
                 let dataDictionary = result as! [Dictionary<String,AnyObject>]
                 for countryData in dataDictionary{
-              //print(dataDictionary)
+                    //print(dataDictionary)
                     let country     = countryData["country"] as? String ?? "error"
                     let cases       = countryData["cases"] as? Int ?? 0
                     let recovered   = countryData["recovered"]as? Int ?? 0
                     let critical    = countryData["critical"]as? Int ?? 0
                     let deaths      = countryData["deaths"]as? Int ?? 0
-            
-            let countryObject = CountryDetails(country: country, cases: cases, critical: critical, deaths: deaths, recovered: recovered)
+                    
+                    let countryObject = CountryDetails(country: country, cases: cases, critical: critical, deaths: deaths, recovered: recovered)
                     allcount.append(countryObject)
                 }
             }
@@ -71,13 +71,13 @@ class CovidFetchRequst: ObservableObject{
         }
     }
     func getMapInfo(){
-    
-       let source = "https://www.trackcorona.live/api/countries"
+        
+        let source = "https://www.trackcorona.live/api/countries"
         let url = URL(string: source)!
         let session = URLSession(configuration: .default)
-        session.dataTask(with: url) { (data,_,err)in
-            if err != nil{
-                print((err?.localizedDescription)!)
+        session.dataTask(with: url) { (data,_,err) in
+            guard err == nil else{
+                print(err!)
                 return
             }
             guard let data = data else { return }
@@ -99,7 +99,7 @@ class CovidFetchRequst: ObservableObject{
                 print(error)
             }
             
-           
+            
         }.resume()
     }
     func getNews(){
@@ -119,7 +119,7 @@ class CovidFetchRequst: ObservableObject{
                 let image = i.1["urlToImage"].stringValue
                 let id = i.1["publishedAt"].stringValue
                 DispatchQueue.main.async {
-                self.datas.append(dataType(id: id, title: title, desc: description, url: url, image: image))
+                    self.datas.append(dataType(id: id, title: title, desc: description, url: url, image: image))
                 }
             }
         }.resume()
