@@ -80,19 +80,26 @@ class CovidFetchRequst: ObservableObject{
                 print((err?.localizedDescription)!)
                 return
             }
-            let json = try! JSON(data: data!)
-            for i in json["data"]{
-                let location = i.1["location"].stringValue
-                let latitude = i.1["latitude"].doubleValue
-                let longitude = i.1["longitude"].doubleValue
-                let confirmed = i.1["confirmed"].intValue
-                let dead = i.1["dead"].intValue
-                let recovered = i.1["recovered"].intValue
-                
-                DispatchQueue.main.async {
-                    self.maps.append(MapInfo(location: location, confirmed: confirmed, dead: dead, recovered: recovered, latitude: latitude, longitude: longitude))
+            guard let data = data else { return }
+            do {
+                let json = try JSON(data: data)
+                for i in json["data"]{
+                    let location = i.1["location"].stringValue
+                    let latitude = i.1["latitude"].doubleValue
+                    let longitude = i.1["longitude"].doubleValue
+                    let confirmed = i.1["confirmed"].intValue
+                    let dead = i.1["dead"].intValue
+                    let recovered = i.1["recovered"].intValue
+                    
+                    DispatchQueue.main.async {
+                        self.maps.append(MapInfo(location: location, confirmed: confirmed, dead: dead, recovered: recovered, latitude: latitude, longitude: longitude))
+                    }
                 }
+            } catch {
+                print(error)
             }
+            
+           
         }.resume()
     }
     func getNews(){
