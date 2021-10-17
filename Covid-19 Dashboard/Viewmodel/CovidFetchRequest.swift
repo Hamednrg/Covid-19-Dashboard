@@ -49,26 +49,30 @@ class CovidFetchRequst: ObservableObject{
             }
         }
     }
+    
     func getAllCountries() {
-        var allcount: [CountryDetails] = [] 
-        AF.request("https://corona.lmao.ninja/v3/covid-19/countries").responseJSON{ response in
-            let result = response.value
-            if result != nil{
-                let dataDictionary = result as! [Dictionary<String,AnyObject>]
-                for countryData in dataDictionary{
-                    //print(dataDictionary)
-                    let country     = countryData["country"] as? String ?? "error"
-                    let cases       = countryData["cases"] as? Int ?? 0
-                    let recovered   = countryData["recovered"]as? Int ?? 0
-                    let critical    = countryData["critical"]as? Int ?? 0
-                    let deaths      = countryData["deaths"]as? Int ?? 0
-                    
-                    let countryObject = CountryDetails(country: country, cases: cases, critical: critical, deaths: deaths, recovered: recovered)
-                    allcount.append(countryObject)
+
+        let headers = [
+            "x-rapidapi-host": "vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com",
+            "x-rapidapi-key": "adbe7bcd77msh84b38286d9d79e0p10388bjsneaad22d69613"
+        ]
+        let request = NSMutableURLRequest(url: NSURL(string: "https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/countries")! as URL, cachePolicy: .useProtocolCachePolicy, timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, _ , error in
+            guard let data = data, error == nil else{ return }
+            
+            do {
+                let countries = try JSONDecoder().decode([CountryDetails].self, from: data)
+                DispatchQueue.main.async {
+                    self.countries = countries
                 }
+            } catch {
+                print(error)
             }
-            self.countries = allcount.sorted(by: {$0.cases > $1.cases})
         }
+        task.resume()
     }
     func getMapInfo(){
         

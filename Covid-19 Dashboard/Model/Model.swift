@@ -23,17 +23,17 @@ struct TotalData {
     }
 }
 
-struct  CountryDetails: Codable {
-    let country:    String
-    let cases:      Int
-    let critical:   Int
-    let deaths:     Int
-    let recovered : Int
+struct  CountryDetails: Codable, Hashable {
+    
+    let Country : String
+    let TotalCases: Int
+    let TotalDeaths: Int
+    let TotalRecovered: Int
     var fatalityRate: Double{
-        return (100.00 * Double(deaths))/Double(cases)
+        return (100.00 * Double(TotalDeaths))/Double(TotalCases)
     }
     var recoveredRate: Double{
-        return (100.00 * Double(recovered))/Double(cases)
+        return (100.00 * Double(TotalRecovered))/Double(TotalCases)
     }
 }
 

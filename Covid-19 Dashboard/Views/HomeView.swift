@@ -26,8 +26,8 @@ struct HomeView: View {
                 List{
                     ForEach(covidFetch.countries.filter{
                         self.searchText.isEmpty ? true:
-                            $0.country.lowercased().contains(self.searchText.lowercased())
-                    }, id: \.country){ CountryDetails in
+                            $0.Country.lowercased().contains(self.searchText.lowercased())
+                    }, id: \.Country){ CountryDetails in
                         
                         
                         NavigationLink(destination: CellView(countryData: CountryDetails)){
@@ -85,20 +85,20 @@ struct HomeView: View {
         var countryData: CountryDetails
         var body: some View{
             HStack{
-                Text(countryData.country)
+                Text(countryData.Country)
                     .font(.headline)
                     .frame(width: 110,height: 40,alignment: .leading )
                     .lineLimit(1)
                 Spacer()
                 HStack{
-                    Text(countryData.cases.formatNumber())
+                    Text(countryData.TotalCases.formatNumber())
                         .font(.subheadline)
                         .scaledToFill()
                         .frame(height: 40, alignment: .leading )
                         .padding(.leading)
                         .lineLimit(1)
                     Spacer(minLength: 10)
-                    Text(countryData.deaths.formatNumber())
+                    Text(countryData.TotalDeaths.formatNumber())
                         .font(.subheadline)
                         .scaledToFill()
                         .frame(height: 40, alignment: .leading )
@@ -106,7 +106,7 @@ struct HomeView: View {
                         .lineLimit(1)
                     
                     Spacer(minLength: 10)
-                    Text(countryData.recovered.formatNumber())
+                    Text(countryData.TotalRecovered.formatNumber())
                         .font(.subheadline)
                         .scaledToFill()
                         .frame(width: 60,height: 40, alignment: .leading )
@@ -181,7 +181,7 @@ struct HomeView: View {
                             Text("Active Cases")
                                 .foregroundColor(.black)
                                 .font(.title)
-                            Text(countryData.cases.formatNumber())
+                            Text(countryData.TotalCases.formatNumber())
                                 .font(.title)
                                 .foregroundColor(.black)
                         }
@@ -189,7 +189,7 @@ struct HomeView: View {
                             VStack(alignment: .leading, spacing: 10){
                                 Text("Deaths")
                                     .foregroundColor(.black)
-                                Text(countryData.deaths.formatNumber())
+                                Text(countryData.TotalDeaths.formatNumber())
                                     .foregroundColor(.red)
                             }
                             Divider()
@@ -199,19 +199,19 @@ struct HomeView: View {
                                 Text(String(format: "%.2f", countryData.fatalityRate))
                                     .foregroundColor(.red)
                             }
-                            Divider()
-                            VStack(alignment: .leading, spacing: 10){
-                                Text("Critical")
-                                    .foregroundColor(.black)
-                                Text(countryData.critical.formatNumber())
-                                    .foregroundColor(.orange)
-                            }
+//                            Divider()
+//                            VStack(alignment: .leading, spacing: 10){
+//                                Text("Critical")
+//                                    .foregroundColor(.black)
+//                                Text(countryData.critical.formatNumber())
+//                                    .foregroundColor(.orange)
+//                            }
                             Divider()
                             
                             VStack(alignment: .leading, spacing: 10){
                                 Text("Recovered")
                                     .foregroundColor(.black)
-                                Text(countryData.recovered.formatNumber())
+                                Text(countryData.TotalRecovered.formatNumber())
                                     .foregroundColor(.green)
                             }
                             Divider()
@@ -230,7 +230,7 @@ struct HomeView: View {
                     .cornerRadius(20)
                     Spacer()
                 }.padding(.top,50)
-                .navigationBarTitle(countryData.country)
+                .navigationBarTitle(countryData.Country)
                 
             }
         }
