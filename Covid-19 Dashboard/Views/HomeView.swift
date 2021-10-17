@@ -199,13 +199,6 @@ struct HomeView: View {
                                 Text(String(format: "%.2f", countryData.fatalityRate))
                                     .foregroundColor(.red)
                             }
-//                            Divider()
-//                            VStack(alignment: .leading, spacing: 10){
-//                                Text("Critical")
-//                                    .foregroundColor(.black)
-//                                Text(countryData.critical.formatNumber())
-//                                    .foregroundColor(.orange)
-//                            }
                             Divider()
                             
                             VStack(alignment: .leading, spacing: 10){
